@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freshers 2026 — IBS Gurgaon</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0d;
+    --gold: #c9a84c;
+    --gold-light: #e8d08a;
+    --cream: #faf7f2;
+    --warm-mid: #f0ebe0;
+    --mid: #7a7468;
+    --rule: #d4c9b0;
+    --red: #b04030;
+  }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--ink);
+    padding: 56px 64px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  }
+
+  .header-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+
+  .header-title span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .header-sub {
+    margin-top: 28px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #9e9690;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* FLOW BANNER */
+  .flow-banner {
+    background: var(--gold);
+    padding: 0 64px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .flow-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.6;
+    white-space: nowrap;
+    padding: 16px 20px 16px 0;
+    border-right: 1px solid rgba(0,0,0,0.2);
+    margin-right: 20px;
+  }
+
+  .flow-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    padding: 14px 0;
+  }
+
+  .flow-step {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 2px 0;
+  }
+
+  .flow-arrow {
+    margin: 0 12px;
+    color: rgba(0,0,0,0.35);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  /* MAIN BODY */
+  .body {
+    padding: 64px;
+  }
+
+  /* SECTION HEADER */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* TABLE */
+  .event-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .event-table thead tr {
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .event-table thead th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    padding: 0 16px 14px;
+    text-align: left;
+    font-weight: 400;
+  }
+
+  .event-table thead th:first-child { padding-left: 0; width: 64px; }
+  .event-table thead th:nth-child(2) { width: 220px; }
+
+  .event-table tbody tr {
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.15s;
+  }
+
+  .event-table tbody tr:hover {
+    background: var(--warm-mid);
+  }
+
+  .event-table td {
+    padding: 18px 16px;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .event-table td:first-child {
+    padding-left: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--mid);
+    padding-top: 20px;
+  }
+
+  .seq-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .seq-num.gold {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  .seq-num.ghost {
+    background: transparent;
+    border: 1.5px solid var(--rule);
+    color: var(--mid);
+  }
+
+  .segment-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .segment-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+  }
+
+  .tag-inauguration { background: #e8e4dc; color: #5a5448; }
+  .tag-cultural { background: #dce8dc; color: #3a5c3a; }
+  .tag-competition { background: #dce4f0; color: #2a3f6a; }
+  .tag-entertainment { background: #f0dce8; color: #6a2a4a; }
+  .tag-finale { background: #f5e8c8; color: #7a5a18; }
+  .tag-closing { background: #e4e4e4; color: #404040; }
+
+  .activity-text {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .sub-items {
+    margin-top: 8px;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sub-items li {
+    font-size: 13px;
+    color: var(--mid);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .sub-items li::before {
+    content: '—';
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* TIMING ROW */
+  .time-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .footer-left {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--mid);
+    line-height: 1.8;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-sig {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .footer-sig-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 4px;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; }
+    .event-table tbody tr:hover { background: none; }
+  }
+
+  @media (max-width: 700px) {
+    .header { padding: 36px 24px 32px; }
+    .flow-banner { padding: 0 24px; }
+    .body { padding: 36px 24px; }
+    .footer { flex-direction: column; gap: 24px; align-items: flex-start; }
+    .footer-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-meta">IBS Gurgaon &nbsp;·&nbsp; Fresher's Event 2026</div>
+  <h1 class="header-title">
+    Freshers<span>'26</span>
+  </h1>
+  <p class="header-sub">Official Event Flow &nbsp;·&nbsp; Commencement: 5:00 PM</p>
+</div>
+
+<div class="flow-banner">
+  <div class="flow-label">Programme Arc</div>
+  <div class="flow-steps">
+    <span class="flow-step">Inauguration</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">Cultural</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">Competition</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">Grand Finale</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">Celebration</span>
+  </div>
+</div>
+
+<div class="body">
+
+  <div class="section-label">Sequence of Events</div>
+
+  <table class="event-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Segment</th>
+        <th>Activity & Details</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><div class="seq-num">01</div></td>
+        <td>
+          <div class="segment-tag tag-inauguration">Inauguration</div>
+          <div class="segment-name">Opening Ceremony</div>
+          <div class="time-note">5:00 PM</div>
+        </td>
+        <td class="activity-text">
+          Welcome Speech
+          <ul class="sub-items">
+            <li>JC &amp; CC Address</li>
+            <li>Lamp Lighting Ceremony</li>
+            <li>Ganesh Vandana</li>
+            <li>Senior Director's Address</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num">02</div></td>
+        <td>
+          <div class="segment-tag tag-cultural">Cultural</div>
+          <div class="segment-name">Cultural Segment</div>
+        </td>
+        <td class="activity-text">
+          Student Council Performance &amp; Junior Council Performance
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num">03</div></td>
+        <td>
+          <div class="segment-tag tag-competition">Competition</div>
+          <div class="segment-name">Round I — Talent Showcase</div>
+        </td>
+        <td class="activity-text">
+          Open talent stage for all participants
+          <ul class="sub-items">
+            <li>Singing</li>
+            <li>Dance</li>
+            <li>Mimicry / Acting</li>
+            <li>Poetry / Stand-up</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num ghost">—</div></td>
+        <td>
+          <div class="segment-tag tag-entertainment">Filler</div>
+          <div class="segment-name">Entertainment Break I</div>
+        </td>
+        <td class="activity-text">
+          Filler Activity — Audience Engagement
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num">04</div></td>
+        <td>
+          <div class="segment-tag tag-competition">Competition</div>
+          <div class="segment-name">Round II — Ramp Walk</div>
+        </td>
+        <td class="activity-text">
+          Ramp Walk for all shortlisted participants
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num ghost">—</div></td>
+        <td>
+          <div class="segment-tag tag-entertainment">Filler</div>
+          <div class="segment-name">Entertainment Break II</div>
+        </td>
+        <td class="activity-text">
+          Interactive Segment / Filler Performance
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num">05</div></td>
+        <td>
+          <div class="segment-tag tag-competition">Competition</div>
+          <div class="segment-name">Round III — Q&amp;A</div>
+        </td>
+        <td class="activity-text">
+          Question &amp; Answer Round with judges panel
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num ghost">—</div></td>
+        <td>
+          <div class="segment-tag tag-entertainment">Filler</div>
+          <div class="segment-name">Judges' Deliberation</div>
+        </td>
+        <td class="activity-text">
+          Final filler performance while judges deliberate
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num gold">06</div></td>
+        <td>
+          <div class="segment-tag tag-finale">Grand Finale</div>
+          <div class="segment-name">Winners' Ceremony</div>
+          <div class="time-note">~9:00 PM</div>
+        </td>
+        <td class="activity-text">
+          Winner Announcement &amp; Prize Distribution
+          <ul class="sub-items">
+            <li>Title winner announcement</li>
+            <li>Sash ceremony on stage</li>
+            <li>Winner walk &amp; group photograph</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num">07</div></td>
+        <td>
+          <div class="segment-tag tag-closing">Closing</div>
+          <div class="segment-name">Vote of Thanks</div>
+        </td>
+        <td class="activity-text">
+          Closing remarks by IT Head / Programme Heads
+        </td>
+      </tr>
+
+      <tr>
+        <td><div class="seq-num gold">08</div></td>
+        <td>
+          <div class="segment-tag tag-closing">Celebration</div>
+          <div class="segment-name">DJ Night</div>
+        </td>
+        <td class="activity-text">
+          Open floor — Closing celebration &amp; networking
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <div class="footer-left">
+      IBS Gurgaon &nbsp;·&nbsp; Fresher's Event 2026<br>
+      Minutes dated: 24 June 2026 &nbsp;·&nbsp; Room 301<br>
+      Poster &amp; Video Submission Deadline: 27 June 2026
+    </div>
+    <div class="footer-right">
+      <div class="footer-sig">Vivek Singh</div>
+      <div class="footer-sig-sub">Reported by &nbsp;·&nbsp; Student Council</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
